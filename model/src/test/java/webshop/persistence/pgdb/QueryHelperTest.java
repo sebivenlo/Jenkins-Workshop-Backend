@@ -10,7 +10,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import webshop.persistence.mappers.PersistenceException;
 
@@ -68,7 +67,7 @@ public class QueryHelperTest {
     /**
      * Test of getConnection method, of class QueryHelper.
      */
-    @Ignore
+    @Test
     public void testGetConnection() {
         System.out.println( "getConnection" );
         try ( QueryHelper helper = new QueryHelper();
@@ -82,7 +81,7 @@ public class QueryHelperTest {
     /**
      * Test of doDelete method, of class QueryHelper.
      */
-    @Ignore
+    @Test
     public void testDoDelete() throws SQLException {
         System.out.println( "doDelete" );
         try ( QueryHelper helper = new QueryHelper() ) {
@@ -110,7 +109,7 @@ public class QueryHelperTest {
      *
      * @throws java.sql.SQLException
      */
-    @Ignore
+    @Test
     public void testDoSelect() throws SQLException {
         System.out.println( "doSelect" );
         fillTestTable();
@@ -121,8 +120,8 @@ public class QueryHelperTest {
      *
      * @throws java.sql.SQLException
      */
-    //@Ignore
-    @Ignore
+    //@Test
+    @Test
     public void testDoInsert() throws SQLException {
 
         System.out.println( "doInsert" );
@@ -140,7 +139,7 @@ public class QueryHelperTest {
     /**
      * Test of doUpdate method, of class QueryHelper.
      */
-    @Ignore
+    @Test
     public void testDoUpdate() {
         System.out.println( "doUpdate" );
         int rowsAffected = fillTestTable();
@@ -175,7 +174,7 @@ public class QueryHelperTest {
     /**
      * Test of wrapException method, of class QueryHelper.
      */
-    @Ignore
+    @Test
     @SuppressWarnings( "ThrowableResultIgnored" )
     public void testWrapException() {
         System.out.println( "wrapException" );
@@ -196,7 +195,7 @@ public class QueryHelperTest {
      * Test of doDDL method, of class QueryHelper. This method simply invokes
      * the helper methods dropTestTable and createTestTabel in this test class.
      */
-    @Ignore
+    @Test
     public void testDoDDL() {
         System.out.println( "doCreateTable is implicit in setup" );
         QueryHelperTest.creatTestTables();
@@ -232,14 +231,14 @@ public class QueryHelperTest {
     /**
      * Test of createDataSource method, of class QueryHelper.
      */
-    @Ignore
+    @Test
     public void testCreateDataSource() {
         System.out.println( "createDataSource" );
         DataSource result = QueryHelper.createDataSource();
         assertTrue( result instanceof DataSource );
     }
 
-    @Ignore
+    @Test
     public void getNextValue() {
         try {
             new QueryHelper().doDDL( seqDef );

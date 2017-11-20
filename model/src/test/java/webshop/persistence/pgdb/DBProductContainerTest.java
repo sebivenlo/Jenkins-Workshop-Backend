@@ -1,9 +1,6 @@
 package webshop.persistence.pgdb;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,10 +9,8 @@ import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import webshop.business.Product;
-import webshop.business.ProductContainer;
 import webshop.business.ProductQuantity;
 import webshop.business.WebshopException;
 import static webshop.persistence.pgdb.PGDBTestUtil.createTestTables;
@@ -66,7 +61,7 @@ public class DBProductContainerTest {
     /**
      * Test of getTableName method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testGetTableName() {
         assertEquals( "test_inventory", inventory.getTableName() );
         assertEquals( "test_carts", cart.getTableName() );
@@ -78,7 +73,7 @@ public class DBProductContainerTest {
      *
      * @throws SQLException ...
      */
-    @Ignore
+    @Test
     public void testContains() {
         System.out.println( "p from mapper = " + p1 );
         assertTrue( "expect it to be contained", inventory.contains( p1 ) );
@@ -88,7 +83,7 @@ public class DBProductContainerTest {
     /**
      * Test of count(Product) method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testCount() {
         int count = inventory.count( p1 );
         ProductQuantity pq = inventory.merge( p1, 2 );
@@ -99,14 +94,14 @@ public class DBProductContainerTest {
     /**
      * Test of drainTo method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testDrainTo() {
     }
 
     /**
      * Test of find method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testFind() {
         ProductQuantity pq = inventory.find( p1 );
         assertNull( inventory.find( null ) );
@@ -120,7 +115,7 @@ public class DBProductContainerTest {
      * comparing results, make sure to sort the expected and result lists. For
      * that you can use the given comparator.
      */
-    @Ignore
+    @Test
     public void testGetContents() {
 
         Comparator<ProductQuantity> comp = Comparator.comparing( pq -> pq
@@ -150,7 +145,7 @@ public class DBProductContainerTest {
     /**
      * Test of itemCount method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testItemCount() {
         int expected = 0;
         List<Product> allProducts = pmapper.getAll();
@@ -165,7 +160,7 @@ public class DBProductContainerTest {
     /**
      * Test of merge method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testMerge_Product_int() throws WebshopException {
         int count = inventory.count( p1 );
         ProductQuantity pq = inventory.merge( p1, 2 );
@@ -179,7 +174,7 @@ public class DBProductContainerTest {
     /**
      * Test of merge method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testMerge_ProductQuantity() {
         int count = cart2.count( p1 );
         ProductQuantity pq = new ProductQuantity( p1, 3 );
@@ -193,7 +188,7 @@ public class DBProductContainerTest {
     /**
      * Test of purge method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testPurge() throws WebshopException {
         System.out.println( "test Purge" );
 
@@ -219,7 +214,7 @@ public class DBProductContainerTest {
      * with the proper amount of products. Check if the inventor now has the
      * correct number of products.
      */
-    @Ignore
+    @Test
     public void testTake() {
         System.out.println( "test PGDBProductContainer.take" );
         int qty = 1;
@@ -238,7 +233,7 @@ public class DBProductContainerTest {
     /**
      * Test of takeAll method, of class PGDBProductContainer.
      */
-    @Ignore
+    @Test
     public void testTakeAll() {
         System.out.println( "testTakeAll" );
         Product p = p3;
@@ -262,7 +257,7 @@ public class DBProductContainerTest {
      *
      * @throws Exception should not happen
      */
-    @Ignore
+    @Test
     public void testTransferTo() throws Exception {
         System.out.println( "testTransferTo" );
         int count = cart2.count( p1 );
@@ -278,7 +273,7 @@ public class DBProductContainerTest {
     /**
      * Try to take more then is available. Test if an exception is thrown.
      */
-    @Ignore
+    @Test
     public void testTransferTo_Greedy() {
         int qty = 2;
         int countCart = cart.count( p3 );
