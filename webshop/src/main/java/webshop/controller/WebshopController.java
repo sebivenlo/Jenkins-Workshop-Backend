@@ -58,7 +58,7 @@ import webshop.persistence.pgdb.QueryHelper;
 @Named("wsc")
 public class WebshopController implements Serializable {
 
-    private static final String PERSISTENCE_CONFIG;// = MEMORY_CONFIG;
+    private static final String PERSISTENCE_CONFIG;//= MEMORY_CONFIG;
     //private static final String PERSISTENCE_CONFIG = DB_CONFIG;
 
     static {
