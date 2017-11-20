@@ -314,8 +314,9 @@ public final class QueryHelper implements AutoCloseable {
     }
     
     private static volatile DataSource dataSource = null;
-    // "../../../../resources/webshop-db.properties"
-    public static final String DBPROPFILE="/opt/payara41/deployments/webshop-db.properties";
+    // 
+    //"/opt/payara41/deployments/webshop-db.properties"
+    public static final String DBPROPFILE="../../../../resources/webshop-db.properties";
     /**
      * Create a data source with fixed credentials. Sufficient for an exam where
      * we do not want to hassle with configuration files.
