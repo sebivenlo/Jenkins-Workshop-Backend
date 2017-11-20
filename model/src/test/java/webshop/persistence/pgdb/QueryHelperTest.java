@@ -68,7 +68,7 @@ public class QueryHelperTest {
     /**
      * Test of getConnection method, of class QueryHelper.
      */
-    @Test
+    @Ignore
     public void testGetConnection() {
         System.out.println( "getConnection" );
         try ( QueryHelper helper = new QueryHelper();
@@ -82,7 +82,7 @@ public class QueryHelperTest {
     /**
      * Test of doDelete method, of class QueryHelper.
      */
-    @Test
+    @Ignore
     public void testDoDelete() throws SQLException {
         System.out.println( "doDelete" );
         try ( QueryHelper helper = new QueryHelper() ) {
@@ -110,7 +110,7 @@ public class QueryHelperTest {
      *
      * @throws java.sql.SQLException
      */
-    @Test
+    @Ignore
     public void testDoSelect() throws SQLException {
         System.out.println( "doSelect" );
         fillTestTable();
@@ -122,7 +122,7 @@ public class QueryHelperTest {
      * @throws java.sql.SQLException
      */
     //@Ignore
-    @Test
+    @Ignore
     public void testDoInsert() throws SQLException {
 
         System.out.println( "doInsert" );
@@ -140,7 +140,7 @@ public class QueryHelperTest {
     /**
      * Test of doUpdate method, of class QueryHelper.
      */
-    @Test
+    @Ignore
     public void testDoUpdate() {
         System.out.println( "doUpdate" );
         int rowsAffected = fillTestTable();
@@ -175,7 +175,7 @@ public class QueryHelperTest {
     /**
      * Test of wrapException method, of class QueryHelper.
      */
-    @Test
+    @Ignore
     @SuppressWarnings( "ThrowableResultIgnored" )
     public void testWrapException() {
         System.out.println( "wrapException" );
@@ -196,7 +196,7 @@ public class QueryHelperTest {
      * Test of doDDL method, of class QueryHelper. This method simply invokes
      * the helper methods dropTestTable and createTestTabel in this test class.
      */
-    @Test
+    @Ignore
     public void testDoDDL() {
         System.out.println( "doCreateTable is implicit in setup" );
         QueryHelperTest.creatTestTables();
@@ -232,14 +232,14 @@ public class QueryHelperTest {
     /**
      * Test of createDataSource method, of class QueryHelper.
      */
-    @Test
+    @Ignore
     public void testCreateDataSource() {
         System.out.println( "createDataSource" );
         DataSource result = QueryHelper.createDataSource();
         assertTrue( result instanceof DataSource );
     }
 
-    @Test
+    @Ignore
     public void getNextValue() {
         try {
             new QueryHelper().doDDL( seqDef );
